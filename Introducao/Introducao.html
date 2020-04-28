@@ -1,0 +1,151 @@
+<html>
+    <header>
+        <title>Curso JavaScript Rocketseat</title>
+        <meta charset="UTF-8">
+    </header>
+    <body>
+
+
+        <script>
+            //Introdução
+            console.log('Hello World!');
+
+            //Variáveis e dados
+            var nome = 'Joao';
+            var idade = 25;
+            var peso = 80.8;
+            var humano = true;
+
+            var alunos = ['Joao', 'Carol', 'Sansao'];
+
+            var aluno = {
+                nome: 'Joao',
+                esposa: alunos[1],
+                idade: 25,
+                peso: 80.8,
+                humano: true
+            };
+
+            console.log(nome);
+            console.log(alunos[1]);
+            console.log(aluno);
+            
+            //Operações matemáticas
+            var x = 10, y = 5;
+            var resultado = x + y;
+
+            console.log(resultado);
+
+            x +=3;
+            console.log(x);
+
+            y*= x;
+            console.log(y);
+
+            //Funções
+            function soma (num1, num2){
+                var resultado = num1 + num2;
+
+                return resultado;
+            }
+
+            resultado = soma(2,2);
+            console.log(resultado);
+
+            //Condicionais
+            function retornaSexo (sexo){
+                if (sexo === 'M') {
+                    return 'Masculino';
+                } else if (sexo === 'f'){
+                    return 'Feminino';
+                } else {
+                    return 'Não ideitificado';
+                }
+            }
+
+            resultado = retornaSexo('F');
+            console.log(resultado);
+
+            function retornaSexo2 (sexo){
+                switch (sexo){
+                    case 'M':
+                        return 'Masculino';
+                    case 'F':
+                        return 'Feminino';
+                    default:
+                        return 'Não identificado';
+                }
+            }
+
+            resultado = retornaSexo2('F');
+            console.log(resultado);
+
+            //Operadores lógicos
+            var sexo = 'M', idade2 = '23';
+
+            if (sexo === 'M' && idade2 >= 18){
+                console.log('Ok');
+            }
+
+            if (sexo === 'M' || idade2 >= 18){
+                console.log('Ok');
+            }
+
+            if (sexo !== 'F'){
+                console.log('Ok');
+            }
+
+            var masculino;
+
+            if (sexo === 'M'){
+                masculino = true;
+            } else{
+                masculino = false;
+            }
+
+            //O bloco acima pode ser substituido pelo seguinte:
+
+            masculino = sexo === 'M';
+            console.log(masculino);
+
+            //Condição ternária
+            var retorno;
+            if (sexo === 'M'){
+                retorno = 'Masculino';
+            } else {
+                retorno = 'Feminino';
+            }
+
+            //O bloco acima pode ser substituido pelo seguinte:
+
+            retorno = (sexo === 'M') ? 'Masculino' : 'Feminino';
+            console.log(retorno);
+
+            //Estruturas de repetição
+            //for e while
+
+            for (var i = 0; i <= 100; i++){
+                //console.log(i);
+            }
+
+            var j = 1;
+            while (j <= 100){
+                //console.log(j);
+
+                j++;
+            }
+
+            //Intervalo e timeout
+            function exibeAlgo() {
+                console.log('Hello World');
+            }
+
+            //Aguarda 1 segundo para executar
+            setTimeout(exibeAlgo, 1000);
+
+            //Executa a cada 1 segundo
+            setInterval(exibeAlgo, 1000);
+
+        </script>
+    </body>
+</html>

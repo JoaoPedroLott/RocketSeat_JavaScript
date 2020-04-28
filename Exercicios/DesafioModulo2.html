@@ -1,0 +1,103 @@
+<html>
+    <header>
+        <title>Curso JavaScript Rocketseat</title>
+        <meta charset="UTF-8">
+    </header>
+    <body>
+       <div id="ex1">
+           <button id ='bttn1'> Criar quadrados</button>
+           <br>
+           <br>
+           <button id ='bttn2'> Apagar quadrados</button>
+           <br>
+       </div>
+       <div id="ex3">
+            <ul id ="lista">
+
+            </ul>
+            <br>
+            <ul id ="lista2">
+
+            </ul>
+            <br>
+            <input id="input" type="text" name="nome">
+            
+            <button id ="bttn3" onClick="adicionar()">Adicionar</button>
+       </div>
+        <script>
+            function getRandomColor() {  
+                var letters = "0123456789ABCDEF";  
+                var color = "#";  
+                
+                for (var i = 0; i < 6; i++) {    
+                    color += letters[Math.floor(Math.random() * 16)];
+                }  
+                return color;
+            };
+            
+            //Exercicio 1
+            var btnElementAdd = document.getElementById('bttn1');
+            var btnElementRemove = document.getElementById('bttn2');
+
+            btnElementAdd.onclick = function () {
+                var quadrado = document.createElement('div');
+        
+                quadrado.style.width = 100;
+                quadrado.style.height = 100;
+                quadrado.style.backgroundColor = '#f00';
+                quadrado.style.marginBottom = 15;
+                quadrado.style.marginTop = 10;
+                quadrado.setAttribute("class", "box");
+
+                //Exercicio 2
+                quadrado.onmouseover = function (){
+                    quadrado.style.backgroundColor = getRandomColor();
+                };
+
+                var containerElement = document.getElementById('ex1');
+                containerElement.appendChild(quadrado);
+            };
+
+            btnElementRemove.onclick = function () {
+                var quadrado = document.querySelector('.box');
+                var containerElement = document.getElementById('ex1');
+
+                containerElement.removeChild(quadrado);
+            };
+
+            //Exercicio 3
+            var nomes = ["Diego","Gabriel","Lucas"];
+            var lista = document.getElementById('lista');
+            
+            for(nome of nomes){
+                var listElement = document.createElement('li');
+                var textElement = document.createTextNode(nome);
+                listElement.appendChild(textElement);
+                lista.appendChild(listElement);
+            };
+
+            //Exercicio 4
+            var nomes2 = [];
+            var lista2 = document.getElementById('lista2');
+            var inputElement = document.getElementById('input');
+
+            function addItem(texto){
+                var listElement = document.createElement('li');
+                var textElement = document.createTextNode(texto);
+                
+                listElement.appendChild(textElement);
+                lista2.appendChild(listElement);
+            };
+
+            function adicionar(){
+                addItem(inputElement.value);
+                inputElement.value = "";
+            };
+
+            for(nome of nomes2){
+                addItem(nome);
+            };
+
+        </script>
+    </body>
+</html>

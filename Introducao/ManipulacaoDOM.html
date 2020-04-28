@@ -1,0 +1,114 @@
+<html>
+    <header>
+        <title>Curso JavaScript Rocketseat</title>
+        <meta charset="UTF-8">
+    </header>
+    <body>
+        <!-- Aula 1 -->
+        <div id="parte1">
+            <div id="bttn1">
+                <button onclick="mostraAlerta()"> Me aperte!</button>
+            </div>
+            <div id="bttn2">
+                <button onmouseover="mostraAlerta2()">Passe o mouse por cima!</button>
+            </div>
+            <div id="input">
+                <input onkeyup="mostraAlerta3()">
+            </div>
+        </div>
+        <!-- /Aula 1 -->
+        <br>
+        <br>
+        <br>
+        <br>
+        <!-- Aula 2 -->
+        <div id="parte2">
+            <input type="text" name="nome" id="nome" class="nome">
+            <button class="botao">Adicionar</button>
+            <input type="text" name="nome" id="nome2" class="nome">
+            <button class="botao">Adicionar</button>
+        </div>
+        <!-- /Aula 2 -->
+        <br>
+        <br>
+        <br>
+        <br>
+        <!-- Aula 3 -->
+        <div id="parte3">
+            <input type="text" name="nome" id="nome3" class="nome">
+            <br>
+            <br>
+        </div>
+        <!-- /Aula 3 -->
+        <!-- Aula 4 -->
+        <br>
+        <br>
+        <div id="parte4">
+            <div class="box">
+
+            </div>
+        </div>
+        <!-- /Aula 4 -->
+        <script>
+            //Aula 1 - Eventos inline
+
+            function mostraAlerta() {
+                alert('Botão foi clicado');
+            }
+            function mostraAlerta2() {
+                alert('Passou o mouse por cima do botão!');
+            }
+            function mostraAlerta3() {
+                alert('Digitou algo!');
+            }
+
+            //AUla 2 - Trabalhando com a DOM
+
+            var inputElement1 = document.getElementById('nome');
+            var inputElement2 = document.getElementsByTagName('input');
+            var inputElement3 = document.getElementsByTagName('input')[1];
+            var inputElement4 = document.getElementsByClassName('nome')[1];
+            var inputElement5 = document.querySelector('div#parte2 input');
+            var inputElement6 = document.querySelector('div#parte2 input[id = nome2]');
+
+            console.log(inputElement1);
+            console.log(inputElement2);
+            console.log(inputElement3);
+            console.log(inputElement4);
+            console.log(inputElement5);
+            console.log(inputElement6);
+
+            //Aula 3 - Lidando com elementos
+
+            var btnElement = document.querySelector('div#parte2 button.botao');
+            var inputElement = document.querySelector('div#parte2 input[id = nome]');
+
+            btnElement.onclick = function () {
+                var text = inputElement.value;
+
+                alert('Botão foi clicado para a mensagem: ' + text);
+            };
+
+            var linkElement = document.createElement('a');
+            linkElement.setAttribute('href', 'https://www.google.com.br/');
+            linkElement.setAttribute('title', 'Site do Google.');
+
+            var textElement = document.createTextNode('Acessar GOOGLE!');
+            linkElement.appendChild(textElement);
+
+            var containerElement = document.getElementById('parte3');
+            containerElement.appendChild(linkElement);
+
+            var inputElement7 = document.getElementById('nome3');
+            containerElement.removeChild(inputElement7);
+
+            //Aula 4 - Alterando estilos
+            var boxElement = document.querySelector('.box');
+
+            boxElement.style.width = 100;
+            boxElement.style.height = 100;
+            boxElement.style.backgroundColor = '#f00';
+
+        </script>
+    </body>
+</html>
